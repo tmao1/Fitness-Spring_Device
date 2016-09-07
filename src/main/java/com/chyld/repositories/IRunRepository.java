@@ -11,9 +11,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IRunRepository extends PagingAndSortingRepository<Run, Integer> {
-    @Query("select r from Run r join r.device d where d.id = :id AND  r.endtime IS NULL")
-    public List<Run> findActiveRunsByDeviceId(@Param("id") int id);
-
     @Query("select r from Run r join r.device d where d.serialnumber = :serialnumber AND  r.endtime IS NULL")
     public List<Run> findActiveRunsByDeviceSerialNumber(@Param("serialnumber") String serialnumber);
 }

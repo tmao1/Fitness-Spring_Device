@@ -11,4 +11,8 @@ public interface IDeviceRepository extends PagingAndSortingRepository<Device, In
 
     @Query("select d from Device d join d.user u where u.id = :id")
     public Page<Device> findAllDevicesByUserId(@Param("id") int id, Pageable pageable);
+
+    @Query("select d from Device d where d.serialnumber = :serialnumber")
+    public Device findDeviceBySerialNumber(@Param("serialnumber") String serialnumber);
+
 }

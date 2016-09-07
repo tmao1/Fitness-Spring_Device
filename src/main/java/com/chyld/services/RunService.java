@@ -29,13 +29,13 @@ public class RunService {
         this.repository = repository;
     }
 
-    public void StartRun(int deviceId) {
+    public void StartRun(String serialnumber) {
 
-        Device thisDevice = this.deviceRepository.findOne(deviceId);
+        Device thisDevice = this.deviceRepository.findDeviceBySerialNumber(serialnumber);
 
         if (thisDevice != null) {
 
-            List<Run> activeRuns = this.findActiveRunsByDeviceId(deviceId);
+            List<Run> activeRuns = this.findActiveRunsByDeviceSerialNumber(serialnumber);
 
             if (activeRuns != null &&
                     activeRuns.size() == 0) {
@@ -49,8 +49,8 @@ public class RunService {
 
     }
 
-    public void StopRun(int deviceId) {
-         List<Run> activeRuns = this.findActiveRunsByDeviceId(deviceId);
+    public void StopRun(String serialnumber) {
+         List<Run> activeRuns = this.findActiveRunsByDeviceSerialNumber(serialnumber);
 
          if (activeRuns != null &&
                     activeRuns.size() == 1) {
@@ -63,9 +63,9 @@ public class RunService {
 
     }
 
-    public List<Run> findActiveRunsByDeviceId(int deviceId)
+    public List<Run> findActiveRunsByDeviceSerialNumber(String serialnumber)
     {
-        return this.repository.findActiveRunsByDeviceId(deviceId);
+        return this.repository.findActiveRunsByDeviceSerialNumber(serialnumber);
     }
 
 }

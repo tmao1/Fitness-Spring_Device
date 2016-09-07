@@ -19,18 +19,18 @@ public class RunController {
     }
 
 
-    @RequestMapping( path = "/{id}/start", method = RequestMethod.POST)
-    public void startRun(@PathVariable int id)
+    @RequestMapping( path = "/{sn}/start", method = RequestMethod.POST)
+    public void startRun(@PathVariable String sn)
     {
-        this.runService.StartRun(id);
+        this.runService.StartRun(sn);
     }
 
     //Start
 
     //Stop
 
-    @RequestMapping(path = "/{id}/stop", method = RequestMethod.POST)
-    public void stopRun(@PathVariable int id){
-        this.runService.StopRun(id);
+    @RequestMapping(path = "/{sn}/stop", method = RequestMethod.POST)
+    public void stopRun(@PathVariable String sn){
+        this.runService.StopRun(sn);
     }
 }

@@ -23,10 +23,10 @@ public class PositionController {
         this.positionService = positionService;
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.POST)
-    public void addPosition(@PathVariable int id, @RequestBody Position position) {
+    @RequestMapping(path = "/{sn}", method = RequestMethod.POST)
+    public void addPosition(@PathVariable String sn, @RequestBody Position position) {
 
-        positionService.savePosition(position, id);
+        positionService.savePosition(position, sn);
 
     }
 }

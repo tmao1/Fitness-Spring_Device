@@ -25,9 +25,9 @@ public class PositionService {
         this.repository = repository;
     }
 
-    public void savePosition(Position position, int deviceId){
+    public void savePosition(Position position, String serialnumber){
 
-        List<Run> activeRuns =  this.runRepository.findActiveRunsByDeviceId(deviceId);
+        List<Run> activeRuns =  this.runRepository.findActiveRunsByDeviceSerialNumber(serialnumber);
 
         if( activeRuns != null &&
                 activeRuns.size()==1) {

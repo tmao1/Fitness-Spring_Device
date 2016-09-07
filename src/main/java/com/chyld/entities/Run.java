@@ -59,7 +59,7 @@ public class Run {
     }
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getStarttime() {
         return starttime;
     }
@@ -68,7 +68,7 @@ public class Run {
         this.starttime = starttime;
     }
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getEndtime() {
         return endtime;
     }
